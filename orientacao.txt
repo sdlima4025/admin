@@ -13,3 +13,8 @@ Caso queira utilizar o comando sem o npx na frente é preciso instalar o json-se
 npm install -g json-server
 
 E depois para subir o servidor fazemos json-server --watch db.json como é feito na aula.
+
+para installar o browser-sync use o código abaivo.
+npm install -g browser-sync
+para inicializar o serviço use o comando abaixo
+browser-sync start --server --files . --host --port 5000 --startPath admin/telas/lista_cliente.html
