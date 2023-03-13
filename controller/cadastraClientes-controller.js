@@ -1,5 +1,6 @@
 import { clienteService } from '../service/cliente-service.js'
 
+// Percorendo a arvore DOM e seleceonando o input com data atribute
 const formulario =  document.querySelector('[data-form]')
 
 // Criando evento

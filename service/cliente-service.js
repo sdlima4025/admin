@@ -5,8 +5,7 @@ const listaClientes = () => {
     })
 }
 
-// FORMULARIO NOVO CLIENTE - POST
-
+// Cria  CLIENTE - POST
 const criaCliente = (nome, email) => {
     return fetch(`http://localhost:3000/profile`, {
         method: 'POST', 
@@ -24,8 +23,18 @@ const criaCliente = (nome, email) => {
     })
 }
 
+// Remove Cliente
+
+const removeCliente = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method:'DELETE'
+    })
+}
+
 // Objeto Service
 export const clienteService = {
     listaClientes,
-    criaCliente
+    criaCliente,
+    removeCliente
+
 }
