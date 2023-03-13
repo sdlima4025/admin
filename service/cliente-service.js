@@ -1,40 +1,61 @@
 const listaClientes = () => {
-    return fetch(`http://localhost:3000/profile`) // fetch com GET
-    .then(resposta => {
-        return resposta.json()
-    })
+    return fetch(`http://localhost:3000/profile`)
+        .then(resposta => {
+
+            return resposta.json()
+
+        })
 }
 
-// Cria  CLIENTE - POST
 const criaCliente = (nome, email) => {
     return fetch(`http://localhost:3000/profile`, {
-        method: 'POST', 
+        method: 'POST',
         headers: {
-            'Content-Type' : 'application/json'
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify ({
+        body: JSON.stringify({
             nome: nome,
             email: email
         })
-        
-        })
+    })
         .then(resposta => {
             return resposta.body
-    })
+        })
 }
-
-// Remove Cliente
 
 const removeCliente = (id) => {
     return fetch(`http://localhost:3000/profile/${id}`, {
-        method:'DELETE'
+        method: 'DELETE'
     })
 }
 
-// Objeto Service
+const detalhaCliente = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`)
+        .then(resposta => {
+            return resposta.json()
+        })
+}
+
+const atualizaCliente = (id, nome, email) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            nome: nome,
+            email: email
+        })
+    })
+        .then(resposta => {
+            return resposta.json()
+        })
+}
+
 export const clienteService = {
     listaClientes,
     criaCliente,
-    removeCliente
-
+    removeCliente,
+    detalhaCliente,
+    atualizaCliente
 }
